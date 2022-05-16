@@ -41,6 +41,7 @@ module SessionsHelper
   # ログアウト
   # cookieに保存されているuser.id削除
   def log_out
+    forget(current_user)
     session.delete(:user_id)
     @current_user = nil
   end
