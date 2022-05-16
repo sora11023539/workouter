@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  attr_accessor :remember_token
   # saveする前に小文字に変換
   before_save { self.email = email.downcase }
 
@@ -18,4 +19,16 @@ class User < ApplicationRecord
   # authenticatedメソッドが使える
   has_secure_password
   validates :password, presence: true, length: { minimum: 8 }
+
+  # ランダムなトークンを返す
+  def User.new_token
+    SecureRandom.urlsafe_base64
+  end
+
+  # 永続セッションのためにユーザーをdbに記憶
+  def remember
+    self.remember_token = User.new_token
+    update_attribute(:remember_digest, User.digest(remember_token))
+  end
+
 end
