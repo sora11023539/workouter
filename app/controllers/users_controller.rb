@@ -4,10 +4,6 @@ class UsersController < ApplicationController
   # destroyアクションをadminユーザーのみに
   before_action :admin_user, only: :destroy
 
-  def show
-    @user = User.find(params[:id])
-  end
-
   def new
     @user = User.new
   end
@@ -15,7 +11,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      UserMailer.account_activation(@user).deliver_now
+      # アカウント有効化メール送信
+      @user.send_activation_email
       flash[:success] = "登録したメールアドレスにアカウント有効化のメールを送信しましたのでご確認ください"
       redirect_to root_url
     else
@@ -38,9 +35,15 @@ class UsersController < ApplicationController
     end
   end
 
-  # 全ユーザー
+  # 有効化された全ユーザー表示
   def index
-    @users = User.all
+    # where 条件に一致したものを配列で返す
+    @users = User.where(activated: true)
+  end
+
+  def show
+    @user = User.find(params[:id])
+    redirect_to root_url and return unless @user.activated?
   end
 
   # ユーザー削除

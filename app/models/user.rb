@@ -57,6 +57,16 @@ class User < ApplicationRecord
     BCrypt::Password.new(digest).is_password?(token)
   end
 
+  # アカウント有効化
+  def activate
+    update_columns(activated: true, activated_at: Time.zone.now)
+  end
+
+  # 有効化用のメール送信
+  def send_activation_email
+    # deliver_now すぐに送信
+    UserMailer.account_activation(self).deliver_now
+  end
 
   private
 
