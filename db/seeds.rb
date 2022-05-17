@@ -6,11 +6,22 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 # メインのサンプルユーザーを1 人作成する
-User.create!(name: "sample user",
-  email: "user@test.com",
-  password: "P@ssw0rd01",
-  password_confirmation: "P@ssw0rd01",
-  # admin: true,
-  # activated: true,
-  # activated_at: Time.zone.now
+User.create!(
+  [
+    {
+      name: "user",
+      email: "user@test.com",
+      password: "P@ssw0rd01",
+      password_confirmation: "P@ssw0rd01",
+      # admin: true,
+      # activated: true,
+      # activated_at: Time.zone.now
+    },
+    {
+      name: "user02",
+      email: "user02@test.com",
+      password: "P@ssw0rd01",
+      password_confirmation: "P@ssw0rd01",
+    }
+  ]
 )
