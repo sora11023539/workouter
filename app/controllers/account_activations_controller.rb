@@ -7,11 +7,10 @@ class AccountActivationsController < ApplicationController
     if user && !user.activated? && user.authenticated?(:activation, params[:id])
       # アカウント有効化
       user.activate
-      # タイムスタンプ更新
-      user.update_attribute(:activated_at, Time.zone.now)
       # ログイン
       log_in user
       flash[:success] = "アカウント有効化しました"
+      redirect_to user
     else
       flash[:danger] = "無効なリンクです"
       redirect_to root_url
