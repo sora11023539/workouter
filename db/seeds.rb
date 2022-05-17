@@ -7,11 +7,11 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 # メインのサンプルユーザーを1 人作成する
 User.create!(
-  name: "user",
-  email: "user@test.com",
+  name: "master",
+  email: "master@test.com",
   password: "P@ssw0rd01",
-  password_confirmation: "P@ssw0rd01"
-  # admin: true,
+  password_confirmation: "P@ssw0rd01",
+  admin: true
   # activated: true,
   # activated_at: Time.zone.now
 )
