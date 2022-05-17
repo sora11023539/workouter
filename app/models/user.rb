@@ -18,7 +18,7 @@ class User < ApplicationRecord
   # 仮想的な属性passwordとpassword_confirmationが使える また存在性と値が一致するかのバリデーションも追加される
   # authenticatedメソッドが使える
   has_secure_password
-  validates :password, presence: true, length: { minimum: 8 }
+  validates :password, presence: true, length: { minimum: 8 }, allow_nil: true
 
   # 渡された文字列のハッシュ値を返す
   def User.digest(string)
