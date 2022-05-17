@@ -8,8 +8,8 @@
 # メインのサンプルユーザーを1 人作成する
 User.create!(name: "sample user",
   email: "user@test.com",
-  password: "password",
-  password_confirmation: "password",
+  password: "P@ssw0rd01",
+  password_confirmation: "P@ssw0rd01",
   # admin: true,
   # activated: true,
   # activated_at: Time.zone.now

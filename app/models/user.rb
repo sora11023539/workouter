@@ -4,7 +4,7 @@ class User < ApplicationRecord
   before_save { self.email = email.downcase }
 
   # userがdbに保存される前にname,emailフィールドが存在するか
-  validates :name, presence: true, length: { maximum: 10 }
+  validates :name, presence: true, length: { maximum: 12 }
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
   validates :email, presence: true,
@@ -40,6 +40,7 @@ class User < ApplicationRecord
 
   # 渡されたトークンがダイジェストと一致したらtrue返す
   def authenticated?(remember_token)
+    return false if remember_digest.nil?
     BCrypt::Password.new(remember_digest).is_password?(remember_token)
   end
 

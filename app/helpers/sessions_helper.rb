@@ -38,6 +38,13 @@ module SessionsHelper
     !current_user.nil?
   end
 
+  # 永続的セッション破棄
+  def forget(user)
+    user.forget
+    cookies.delete(:user_id)
+    cookies.delete(:remember_token)
+  end
+
   # ログアウト
   # cookieに保存されているuser.id削除
   def log_out
