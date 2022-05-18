@@ -16,6 +16,7 @@ User.create!(
   activated_at: Time.zone.now
 )
 
+# user生成
 30.times do |n|
   name = Faker::Name.name
   email = "user-#{n+1}@test.com"
@@ -29,3 +30,11 @@ User.create!(
     activated_at: Time.zone.now
   )
 end
+
+# relationships作成
+users = User.all
+user = users.first
+following = users[2..30]
+followers = users[3..20]
+following.each{ |followed| user.follow(followed) }
+followers.each{ |follower| follower.follow(user) }
