@@ -1,6 +1,12 @@
 class User < ApplicationRecord
-  has_many :active_relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
-  has_many :passive_relationships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
+  # follow
+  has_many :active_relationships, class_name: "Relationship",
+                                  foreign_key: "follower_id",
+                                  dependent: :destroy
+  # follower
+  has_many :passive_relationships, class_name: "Relationship",
+                                    foreign_key: "followed_id",
+                                    dependent: :destroy
   # Userモデルにfollowingの関連付けをする
   # source following配列の元はfollowed id の集合
   has_many :following, through: :active_relationships, source: :followed
@@ -29,16 +35,18 @@ class User < ApplicationRecord
   has_secure_password
   validates :password, presence: true, length: { minimum: 8 }, allow_nil: true
 
-  # 渡された文字列のハッシュ値を返す
-  def User.digest(string)
-    cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
-                                                  BCrypt::Engine.cost
-                                                  BCrypt::Password.create(string, cost: cost)
-  end
+  class << self
+    # 渡された文字列のハッシュ値を返す
+    def User.digest(string)
+      cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
+                                                    BCrypt::Engine.cost
+                                                    BCrypt::Password.create(string, cost: cost)
+    end
 
-  # ランダムなトークンを返す
-  def User.new_token
-    SecureRandom.urlsafe_base64
+    # ランダムなトークンを返す
+    def User.new_token
+      SecureRandom.urlsafe_base64
+    end
   end
 
   # 永続セッションのためにユーザーをdbに記憶
@@ -80,8 +88,6 @@ class User < ApplicationRecord
   def create_reset_digest
     self.reset_token = User.new_token
     update_columns(reset_digest: User.digest(reset_token), reset_sent_at: Time.zone.now)
-    update_attribute(:reset_digest, User.digest(reset_token))
-    update_attribute(:reset_sent_at, Time.zone.now)
   end
 
   # pass再設定のメール送信

@@ -2,12 +2,6 @@
 <h1>ユーザー一覧</h1>
 <ul>
   <% @users.each do |user| %>
-    <li>
-      <%= link_to user.name, user %>
-      <% if current_user.admin? && !current_user?(user) %>
-        | <%= link_to "delete", user, method: :delete, data: { confirm: "削除してもよろしいですか？" } %>
-      <% end %>
-    </li>
+    <%= render user %>
   <% end %>
 </ul>
-
