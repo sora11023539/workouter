@@ -13,6 +13,10 @@ class User < ApplicationRecord
   # Userモデルにfollowersの関連付けをする
   has_many :followers, through: :passive_relationships, source: :follower
 
+  # chat
+  has_many :user_rooms, dependent: :destroy
+  has_many :chats, dependent: :destroy
+
   attr_accessor :remember_token, :activation_token, :reset_token
   # saveする前に小文字に変換
   before_save :downcase_email
