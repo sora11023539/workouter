@@ -2,3 +2,6 @@
 <%= @user.name %>
 <%= render 'shared/stats' %>
 <%= render 'follow_form' if logged_in? %>
+<% if current_user != @user %>
+  <%= link_to 'チャット', chat_path(@user.id) %>
+<% end %>

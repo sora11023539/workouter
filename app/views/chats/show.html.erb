@@ -1,2 +1,18 @@
-<h1>Chats#show</h1>
-<p>Find me in app/views/chats/show.html.erb</p>
+<% provide(:title, "チャット") %>
+<ul>
+  <li><%= @user.name %></li>
+</ul>
+
+<% @chats.each do |chat| %>
+  <% if chat.user_id == current_user.id %>
+    <p><%= chat.message %></p>
+  <% else %>
+    <p><%= chat.message %></p>
+  <% end %>
+<% end %>
+
+<%= form_with model: @chat, remote: true do|f| %>
+  <%= f.text_field :message %>
+  <%= f.hidden_field :room_id %>
+  <%= f.submit "送信する" %>
+<% end %>
