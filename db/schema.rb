@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_23_130408) do
+ActiveRecord::Schema.define(version: 2022_05_23_201233) do
 
   create_table "chats", charset: "utf8mb4", force: :cascade do |t|
     t.integer "user_id"
@@ -55,6 +55,14 @@ ActiveRecord::Schema.define(version: 2022_05_23_130408) do
     t.datetime "activated_at"
     t.string "reset_digest"
     t.datetime "reset_sent_at"
+    t.integer "gender"
+    t.string "address"
+    t.date "birthday"
+    t.string "usedgym"
+    t.integer "height"
+    t.integer "weight"
+    t.string "proud"
+    t.text "introduction"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
