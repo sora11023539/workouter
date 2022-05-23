@@ -28,6 +28,9 @@ class User < ApplicationRecord
   # userがdbに保存される前にname,emailフィールドが存在するか
   validates :name, presence: true, length: { maximum: 100 }
 
+  # 性別
+  enum gendar: { man: 0, woman: 1}
+
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
   validates :email, presence: true,
                     length: { maximum: 255 },

@@ -11,6 +11,21 @@ User.create!(
   email: "master@test.com",
   password: "P@ssw0rd01",
   password_confirmation: "P@ssw0rd01",
+
+  avatar: File.open('./app/assets/images/master_user.jpg'),
+  address: "広島",
+  birthday: Time.parse("1996/11/02"),
+  gendar: 0,
+  height: 170,
+  weight: 70,
+  proud: "表情筋",
+  introduction: "広島県のエニタイムフィットネスでトレーニングしております、
+                  丸佳浩と申します。
+                  筋トレ歴は4年です。
+
+                  宜しくお願いしまっちょ。",
+  usedgym: "エニタイムフィットネス",
+
   admin: true,
   activated: true,
   activated_at: Time.zone.now
