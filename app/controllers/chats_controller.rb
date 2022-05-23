@@ -12,25 +12,26 @@ class ChatsController < ApplicationController
     user_room = UserRoom.find_by(user_id: @user.id, room_id: rooms)
 
     # user_roomでルームを取得出来なかった(AとBのチャットがまだ存在しない)
+    room = nil
     if user_room.nil?
       # roomのidを採番
-      @room = Room.new
-      @room.save
+      room = Room.new
+      room.save
       # 採番したroomのidを使って、user_roomのレコードを2人分(A,B)を作る(AとBに共通のroom_idを作る)
       # Bの@user.idをuser_idとして、room.idをroom_idとして、UserRoomモデルのカラムに保存(1レコード)
-      UserRoom.create(user_id: @user.id, room_id: @room.id)
+      UserRoom.create(user_id: @user.id, room_id: room.id)
       # Aのcurrent_user.idをuser_idとして、room.idをroom_idとして、UserRoomモデルのカラムに保存(1レコード)
-      UserRoom.create(user_id: current_user.id, room_id: @room.id)
+      UserRoom.create(user_id: current_user.id, room_id: room.id)
     else
       # user_roomに紐づくroomsテーブルのレコードをroomに格納
-      @room = usre_room.room
+      room = user_room.room
     end
 
     # roomに紐づくchatsテーブルのレコードを@chatsに格納
-    @chats = @room.chats
+    @chats = room.chats
     # form_withでチャットを送信するのに必要な空のインスタンス
     # ここでroom.idを@chatに代入しておかないと、form_withで記述するroom_idに値が渡らない
-    @chat = Chat.new(room_id: @room.id)
+    @chat = Chat.new(room_id: room.id)
   end
 
   def create
@@ -41,7 +42,7 @@ class ChatsController < ApplicationController
   private
 
     def chat_params
-      params.require(:chat).permit(:messsage, :room_id)
+      params.require(:chat).permit(:message, :room_id)
     end
 
 end
