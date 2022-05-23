@@ -3,7 +3,7 @@
 <% if @user.avatar? %>
   <%= image_tag @user.avatar.url %>
 <% else %>
-  <p>画像無し</p>
+  <%= image_tag ("sample_user"), style: 'width: 200px;' %>
 <% end %>
 <%= render 'shared/stats' %>
 <%= render 'follow_form' if logged_in? %>
