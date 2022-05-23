@@ -12,7 +12,7 @@ class ChatsController < ApplicationController
     user_room = UserRoom.find_by(user_id: @user.id, room_id: rooms)
 
     # user_roomでルームを取得出来なかった(AとBのチャットがまだ存在しない)
-    if user_rooms.nil?
+    if user_room.nil?
       # roomのidを採番
       @room = Room.new
       @room.save
@@ -23,7 +23,7 @@ class ChatsController < ApplicationController
       UserRoom.create(user_id: current_user.id, room_id: @room.id)
     else
       # user_roomに紐づくroomsテーブルのレコードをroomに格納
-      @room = usre_rooms.room
+      @room = usre_room.room
     end
 
     # roomに紐づくchatsテーブルのレコードを@chatsに格納
