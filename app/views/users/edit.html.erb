@@ -2,6 +2,8 @@
 <h1>プロフィール編集</h1>
 <%= form_with(model: @user, local: true) do |f| %>
 <%= render 'shared/error_messages', object: f.object %>
+<%= f.label :avatar %>
+<%= f.file_field :avatar %>
 <%= f.label :name %>
 <%= f.text_field :name %>
 <%= f.label :email %>

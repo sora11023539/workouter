@@ -22,6 +22,9 @@ class User < ApplicationRecord
   before_save :downcase_email
   before_create :create_activation_digest
 
+  # 「アップロード画像用のカラム」と「アップローダークラス」を紐づけるために「avatar_uploder」をマウント
+  mount_uploader :avatar, AvatarUploader
+
   # userがdbに保存される前にname,emailフィールドが存在するか
   validates :name, presence: true, length: { maximum: 100 }
 

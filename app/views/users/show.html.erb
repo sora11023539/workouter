@@ -1,5 +1,10 @@
 <% provide(:title, @user.name) %>
 <%= @user.name %>
+<% if @user.avatar? %>
+  <%= image_tag @user.avatar.url %>
+<% else %>
+  <p>画像無し</p>
+<% end %>
 <%= render 'shared/stats' %>
 <%= render 'follow_form' if logged_in? %>
 <% if current_user != @user %>
