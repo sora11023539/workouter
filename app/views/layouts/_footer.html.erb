@@ -1,9 +1,11 @@
-<footer>
-  <div class="inner">
-    <%= link_to "Workouter", root_path %>
-  </div>
-  <nav>
-    <li><%= link_to "Home", root_path %></li>
-    <li><%= link_to "ログイン", login_path %></li>
-  </nav>
+<footer class="footer <%= logged_in? ? "footer-login" : "footer-home" %>">
+  <%= link_to "Workouter", root_path, class: 'footer-logo' %>
+  <% if logged_in? %>
+    <ul>
+      <li><%= link_to "ユーザーを探す", users_path %></li>
+      <li><%= link_to "チャット", chats_path %></li>
+      <li><%= link_to "プロフィール", current_user %></li>
+    </ul>
+  <% else %>
+  <% end %>
 </footer>

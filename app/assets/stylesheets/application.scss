@@ -139,3 +139,36 @@ p {
     }
   }
 }
+
+// footer
+.footer {
+  background-color: $green;
+
+  ul {
+    @extend .flex-box;
+
+    li:not(:last-child) {
+      margin-right: 16px;
+    }
+  }
+
+  a {
+    color: $white;
+  }
+
+  &-logo {
+    font-size: 32px;
+  }
+
+  &-home {
+    padding: 16px 0;
+    text-align: center;
+  }
+
+  &-login {
+    @extend .flex-box;
+    justify-content: space-between;
+
+    padding: 40px;
+  }
+}
