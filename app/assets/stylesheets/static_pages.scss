@@ -15,7 +15,7 @@
     }
   }
 
-  &-message {
+  &-catch-copy {
     position: absolute;
     top: 50%;
     left: 16.6%;
@@ -30,6 +30,24 @@
     .btn-green {
       font-size: 32px;
       padding: 16px 56px;
+    }
+  }
+
+  &-message {
+    padding: 40px 0;
+    text-align: center;
+
+    &__negative {
+      margin-bottom: 32px;
+
+      h4:not(:last-child) {
+        margin-bottom: 8px;
+      }
+    }
+
+    h1 {
+      color: $green;
+      margin-bottom: 32px;
     }
   }
 }

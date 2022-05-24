@@ -50,6 +50,19 @@ img {
   height: auto;
 }
 
+h1 {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+h4 {
+  font-size: 20px;
+}
+
+p {
+  font-size: 16px;
+}
+
 // mixin
 @mixin btn($background: $green, $color: $white, $border: $green) {
   padding: 8px 24px;
@@ -61,6 +74,12 @@ img {
 }
 
 // layout
+.inner {
+  max-width: 992px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
 .flex-box {
   display: flex;
   align-items: center;
