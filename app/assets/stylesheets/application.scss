@@ -1,0 +1,125 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+$white: #fff;
+$black: #333;
+$gray: #7F7F7F;
+$green: #258039;
+$yellow: #F5BE41;
+$blue: #31A9B8;
+$red: #CF3721;
+$navy: #286DEB;
+$blue: #DB1882;
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap');
+
+//selector
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 600;
+  background-color: $white;
+
+  letter-spacing: 0.05em;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  transition: all .3s;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+// mixin
+@mixin btn($background: $green, $color: $white, $border: $green) {
+  padding: 8px 24px;
+
+  background-color: $background;
+  color: $color;
+  border: solid 1px $border;
+  border-radius: 50px;
+}
+
+// layout
+.flex-box {
+  display: flex;
+  align-items: center;
+}
+
+.flex-center {
+  @extend .flex-box;
+  justify-content: center;
+}
+
+// components
+.btn {
+  &-green {
+    @include btn;
+
+    &__reverse {
+      @include btn($white, $green, $green)
+    }
+  }
+}
+
+// header
+.header {
+  @extend .flex-box;
+  justify-content: space-between;
+
+  // position: fixed;
+  // z-index: 100;
+
+  // width: 100%;
+  padding: 8px 40px;
+
+  color: $green;
+  background-color: $white;
+  box-shadow: 0px 4px 8px rgba($color: $black, $alpha: 0.25);
+
+  &-logo {
+    color: $green;
+    font-size: 32px;
+  }
+
+  ul {
+    @extend .flex-box;
+
+    li {
+      &:not(:last-child) {
+        margin-right: 24px;
+      }
+
+      a {
+        color: $green;
+      }
+
+      .btn-green {
+        color: $white;
+      }
+    }
+  }
+}

@@ -1,17 +1,13 @@
-<header>
-  <div class="inner">
-    <%= link_to "Workouter", root_path %>
-    <nav>
-      <ul>
-        <li><%= link_to "Home", root_path %></li>
-        <% if logged_in? %>
-          <li><%= link_to "プロフィール", current_user %></li>
-          <li><%= link_to "編集", edit_user_path(current_user) %></li>
-          <li><%= link_to "ログアウト", logout_path, method: :delete %></li>
-        <% else %>
-          <li><%= link_to "ログイン", login_path %></li>
-        <% end %>
-      </ul>
-    </nav>
-  </div>
+<header class="header">
+  <%= link_to "Workouter", root_path, class: 'header-logo' %>
+  <ul>
+    <% if logged_in? %>
+      <li><%= link_to "ユーザーを探す", users_path %></li>
+      <li><%= link_to "チャット", chats_path %></li>
+      <li><%= link_to "プロフィール", current_user %></li>
+    <% else %>
+      <li><%= link_to "ログイン", login_path, class: 'btn-green__reverse' %></li>
+      <li><%= link_to "新規登録", signup_path, class: 'btn-green' %></li>
+    <% end %>
+  </ul>
 </header>

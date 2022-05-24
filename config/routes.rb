@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   get '/signup', to: 'users#new'
   get '/login', to: 'sessions#new'
-  get 'chat/:id', to: 'chats#show', as: 'chat'
+  get 'chats/:id', to: 'chats#show', as: 'chat'
   resources :chats, only: [:create]
 
   post '/login', to: 'sessions#create'
