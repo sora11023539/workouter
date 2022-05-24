@@ -14,16 +14,7 @@
  *= require_self
  */
 
-$white: #fff;
-$black: #333;
-$gray: #7F7F7F;
-$green: #258039;
-$yellow: #F5BE41;
-$blue: #31A9B8;
-$red: #CF3721;
-$navy: #286DEB;
-$blue: #DB1882;
-
+@import './color.scss';
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap');
 
 //selector
@@ -38,6 +29,7 @@ body {
   background-color: $white;
 
   letter-spacing: 0.05em;
+
 }
 
 li {
@@ -51,6 +43,11 @@ a {
   &:hover {
     opacity: 0.8;
   }
+}
+
+img {
+  width: 100%;
+  height: auto;
 }
 
 // mixin
@@ -90,10 +87,10 @@ a {
   @extend .flex-box;
   justify-content: space-between;
 
-  // position: fixed;
-  // z-index: 100;
+  position: fixed;
+  z-index: 100;
 
-  // width: 100%;
+  width: 100%;
   padding: 8px 40px;
 
   color: $green;

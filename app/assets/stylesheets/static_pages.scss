@@ -1,3 +1,35 @@
 // Place all the styles related to the StaticPages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+@import './color.scss';
+
+// home
+.home {
+  &-top {
+    position: relative;
+
+    img {
+      object-fit: cover;
+      height: 100vh;
+    }
+  }
+
+  &-message {
+    position: absolute;
+    top: 50%;
+    left: 16.6%;
+    transform: translateY(-50%);
+
+    h1 {
+      margin-bottom: 40px;
+      color: $white;
+      font-size: 64px;
+    }
+
+    .btn-green {
+      font-size: 32px;
+      padding: 16px 56px;
+    }
+  }
+}
