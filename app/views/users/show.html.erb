@@ -26,3 +26,7 @@
 <% if current_user != @user %>
   <%= link_to 'チャット', chat_path(@user.id) %>
 <% end %>
+
+<% if current_user? %>
+  <%= link_to "ログアウト", logout_path, method: :delete %>
+<% end %>
