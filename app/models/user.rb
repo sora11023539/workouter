@@ -26,6 +26,7 @@ class User < ApplicationRecord
   validates :name, presence: true, length: { maximum: 100 }
 
   has_one_attached :avatar
+  mount_uploader :avatar, AvatarUploader
 
   # 性別
   enum gendar: { man: 0, woman: 1}
