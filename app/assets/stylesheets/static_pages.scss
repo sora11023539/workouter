@@ -6,6 +6,11 @@
 
 // home
 .home {
+  .btn-green {
+    font-size: 32px;
+    padding: 16px 56px;
+  }
+
   &-top {
     position: relative;
 
@@ -26,17 +31,14 @@
       color: $white;
       font-size: 64px;
     }
+  }
 
-    .btn-green {
-      font-size: 32px;
-      padding: 16px 56px;
-    }
+  section {
+    padding: 40px 0;
+    text-align: center;
   }
 
   &-message {
-    padding: 40px 0;
-    text-align: center;
-
     &__negative {
       margin-bottom: 32px;
 
@@ -52,8 +54,7 @@
   }
 
   &-lets {
-    padding: 16px 0;
-    text-align: center;
+    padding: 16px 0px!important;
     background-color: $yellow;
 
     h4 {
