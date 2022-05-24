@@ -1,10 +1,26 @@
 <% provide(:title, @user.name) %>
+
 <%= @user.name %>
 <% if @user.avatar? %>
   <%= image_tag @user.avatar.url, style: 'width: 200px;' %>
 <% else %>
   <%= image_tag ("sample_user"), style: 'width: 200px;' %>
 <% end %>
+<p>居住地</p>
+<%= @user.address %>
+<p>利用しているジム</p>
+<%= @user.usedgym %>
+<p>年齢</p>
+<%= @user.birthday %>
+<p>性別</p>
+<%= @user.gendar %>
+<p>身長</p>
+<%= @user.height %>
+<p>体重</p>
+<%= @user.weight %>
+<p>自慢の部位</p>
+<%= @user.proud %>
+
 <%= render 'shared/stats' %>
 <%= render 'follow_form' if logged_in? %>
 <% if current_user != @user %>
