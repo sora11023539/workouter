@@ -1,7 +1,7 @@
 <% provide(:title, @user.name) %>
 <%= @user.name %>
 <% if @user.avatar? %>
-  <%= image_tag @user.avatar.url %>
+  <%= image_tag @user.avatar.variant(resize: '200x200') %>
 <% else %>
   <%= image_tag ("sample_user"), style: 'width: 200px;' %>
 <% end %>

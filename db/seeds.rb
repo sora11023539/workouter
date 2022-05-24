@@ -12,7 +12,7 @@ User.create!(
   password: "P@ssw0rd01",
   password_confirmation: "P@ssw0rd01",
 
-  avatar: File.open('./app/assets/images/master_user.jpg'),
+  # avatar: File.open(Rails.root.join('app/assets/images/master_user.jpg')),
   address: "広島",
   birthday: Time.parse("1996/11/02"),
   gendar: 0,
