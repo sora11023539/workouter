@@ -14,3 +14,9 @@ import 'jquery'
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+//ヘッダーの高さ分だけコンテンツを下げる
+$(function() {
+  let height=$(".header").height();
+  $(".wrap").css("padding-top", height + 56);//10pxだけ余裕をもたせる
+});
