@@ -77,7 +77,7 @@ class UsersController < ApplicationController
                                     :avatar,
                                     :address,
                                     :birthday,
-                                    :gendar,
+                                    :gender,
                                     :height,
                                     :weight,
                                     :proud,

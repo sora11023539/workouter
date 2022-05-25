@@ -1,23 +1,48 @@
 <% provide(:title, 'アカウント登録') %>
 
-<div class="signup inner">
+<article class="signup inner">
   <h1>アカウント登録</h1>
 
-  <%= form_with(model: @user, local: true) do |f| %>
-    <%= render 'shared/error_messages', object: f.object %>
+  <ul>
+    <%= form_with(model: @user, local: true) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
 
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+      <li>
+        <%= f.label :name, "ニックネーム" %>
+        <%= f.text_field :name %>
+      </li>
+      <li>
+        <%= f.label :gender, "性別" %>
+        <%= f.radio_button :gender, :man %>
+        <%= f.label :man, "男性" %>
+        <%= f.radio_button :gender, :woman  %>
+        <%= f.label :woman, "女性" %>
+      </li>
+      <li>
+        <%= f.label :name, "ニックネーム" %>
+        <%= f.text_field :name %>
+      </li>
+      <li>
+        <%= f.label :name, "ニックネーム" %>
+        <%= f.text_field :name %>
+      </li>
 
-    <%= f.label :email %>
-    <%= f.text_field :email %>
+      <li>
+        <%= f.label :email %>
+        <%= f.text_field :email %>
+      </li>
 
-    <%= f.label :password %>
-    <%= f.password_field :password %>
+      <li>
+        <%= f.label :password %>
+        <%= f.password_field :password %>
+      </li>
 
-    <%= f.label :password_confirmation, "パスワード確認" %>
-    <%= f.password_field :password_confirmation %>
+      <li>
+        <%= f.label :password_confirmation, "パスワード確認" %>
+        <%= f.password_field :password_confirmation %>
+      </li>
 
-    <%= f.submit "登録" %>
-  <% end %>
-</div>
+      <%= f.submit "登録" %>
+    <% end %>
+  </ul>
+</article>

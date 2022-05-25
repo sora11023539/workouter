@@ -15,7 +15,7 @@ User.create!(
   # avatar: File.open(Rails.root.join('app/assets/images/master_user.jpg')),
   address: "広島",
   birthday: Time.parse("1996/11/02"),
-  gendar: 0,
+  gender: 0,
   height: 170,
   weight: 70,
   proud: "表情筋",

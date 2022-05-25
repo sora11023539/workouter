@@ -29,7 +29,7 @@ class User < ApplicationRecord
   mount_uploader :avatar, AvatarUploader
 
   # 性別
-  enum gendar: { man: 0, woman: 1}
+  enum gender: { man: 0, woman: 1}
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
   validates :email, presence: true,
