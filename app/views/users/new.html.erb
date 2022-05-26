@@ -1,51 +1,46 @@
 <% provide(:title, 'アカウント登録') %>
 
-<article class="signup inner">
+<article class="sign-up inner">
   <h1>アカウント登録</h1>
 
-  <ul>
-    <%= form_with(model: @user, local: true) do |f| %>
-      <%= render 'shared/error_messages', object: f.object %>
-      <li>
-        <%= f.label :name, "ニックネーム" %>
-        <%= f.text_field :name %>
-      </li>
-      <li>
-        <%= f.label :gender, "性別" %>
-        <div class="flex-box">
-          <%= f.radio_button :gender, :man %>
-          <%= f.label :man, "男性" %>
-          <%= f.radio_button :gender, :woman  %>
-          <%= f.label :woman, "女性" %>
-          <%= f.radio_button :gender, :others  %>
-          <%= f.label :others, "その他" %>
-        </div>
-      </li>
-      <li>
-        <%= f.label :address, "住所" %>
-        <%= f.select :address, User.addresses.keys, {} %>
-      </li>
-      <li>
-        <%= f.label :birthday, "生年月日" %>
-        <%= f.date_select :birthday, {use_month_numbers: true} %>
-      </li>
+  <%= form_with(model: @user, local: true) do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
+    <dl>
+      <dt><%= f.label :name, "ニックネーム" %></dt>
+      <dd><%= f.text_field :name %></dd>
+    </dl>
+    <dl>
+      <dt><%= f.label :gender, "性別" %></dt>
+      <dd>
+        <%= f.radio_button :gender, :man %>
+        <%= f.label :man, "男性" %>
+        <%= f.radio_button :gender, :woman  %>
+        <%= f.label :woman, "女性" %>
+        <%= f.radio_button :gender, :others  %>
+        <%= f.label :others, "その他" %>
+      </dd>
+    </dl>
+    <dl>
+      <dt><%= f.label :address, "住所" %></dt>
+      <dd><%= f.select :address, User.addresses.keys, {} %></dd>
+    </dl>
+    <dl>
+      <dt><%= f.label :birthday, "生年月日" %></dt>
+      <dd><%= f.date_select :birthday, { use_month_numbers: true, start_year: 1900 } %></dd>
+    </dl>
+    <dl>
+      <dt><%= f.label :email, "メールアドレス" %></dt>
+      <dd><%= f.text_field :email %></dd>
+    </dl>
+    <dl>
+      <dt><%= f.label :password, "パスワード" %></dt>
+      <dd><%= f.password_field :password %></dd>
+    </dl>
+    <dl>
+      <dt><%= f.label :password_confirmation, "パスワード確認" %></dt>
+      <dd><%= f.password_field :password_confirmation %></dd>
+    </dl>
 
-      <li>
-        <%= f.label :email, "メールアドレス" %>
-        <%= f.text_field :email %>
-      </li>
-
-      <li>
-        <%= f.label :password, "パスワード" %>
-        <%= f.password_field :password %>
-      </li>
-
-      <li>
-        <%= f.label :password_confirmation, "パスワード確認" %>
-        <%= f.password_field :password_confirmation %>
-      </li>
-
-      <%= f.submit "登録" %>
-    <% end %>
-  </ul>
+    <%= f.submit "登録する", class: 'btn-green' %>
+  <% end %>
 </article>

@@ -65,6 +65,14 @@ p {
   font-size: 16px;
 }
 
+input,
+select {
+  padding: 6px;
+  font-size: 16px;
+  border: solid 1px $gray;
+  border-radius: 5px;
+}
+
 // mixin
 @mixin btn($background: $green, $color: $white, $border: $green) {
   padding: 8px 24px;
@@ -80,6 +88,10 @@ p {
   max-width: 992px;
   margin: 0 auto;
   padding: 0 16px;
+}
+
+.wrap {
+  padding-bottom: 56px;
 }
 
 .flex-box {
@@ -180,5 +192,22 @@ article{
     justify-content: space-between;
 
     padding: 40px;
+  }
+}
+
+// sign-up
+.sign-up {
+  input[type=text],
+  input[type=password] {
+    width: 300px;
+  }
+  dl {
+    @extend .flex-box;
+    margin-bottom: 24px;
+
+    dt {
+      width: 150px;
+      color: $gray;
+    }
   }
 }
