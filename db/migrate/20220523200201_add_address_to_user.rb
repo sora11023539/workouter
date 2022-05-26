@@ -1,5 +1,7 @@
 class AddAddressToUser < ActiveRecord::Migration[6.1]
   def change
-    add_column :users, :address, :string
+    create_table :addresses do |t|
+      t.integer :address, null: false, default: 0
+    end
   end
 end

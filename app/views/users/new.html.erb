@@ -6,23 +6,24 @@
   <ul>
     <%= form_with(model: @user, local: true) do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
-
       <li>
         <%= f.label :name, "ニックネーム" %>
         <%= f.text_field :name %>
       </li>
       <li>
         <%= f.label :gender, "性別" %>
-        <%= f.radio_button :gender, :man %>
-        <%= f.label :man, "男性" %>
-        <%= f.radio_button :gender, :woman  %>
-        <%= f.label :woman, "女性" %>
-        <%= f.radio_button :gender, :others  %>
-        <%= f.label :others, "その他" %>
+        <div class="flex-box">
+          <%= f.radio_button :gender, :man %>
+          <%= f.label :man, "男性" %>
+          <%= f.radio_button :gender, :woman  %>
+          <%= f.label :woman, "女性" %>
+          <%= f.radio_button :gender, :others  %>
+          <%= f.label :others, "その他" %>
+        </div>
       </li>
       <li>
         <%= f.label :address, "住所" %>
-        <%= f.text_field :address %>
+        <%= f.select :address, User.addresses.keys, {} %>
       </li>
       <li>
         <%= f.label :birthday, "生年月日" %>
