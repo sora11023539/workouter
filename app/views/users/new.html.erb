@@ -19,21 +19,21 @@
         <%= f.label :woman, "女性" %>
       </li>
       <li>
-        <%= f.label :name, "ニックネーム" %>
-        <%= f.text_field :name %>
+        <%= f.label :address, "住所" %>
+        <%= f.text_field :address %>
       </li>
       <li>
-        <%= f.label :name, "ニックネーム" %>
-        <%= f.text_field :name %>
+        <%= f.label :birthday, "生年月日" %>
+        <%= f.date_select :birthday, {use_month_numbers: true} %>
       </li>
 
       <li>
-        <%= f.label :email %>
+        <%= f.label :email, "メールアドレス" %>
         <%= f.text_field :email %>
       </li>
 
       <li>
-        <%= f.label :password %>
+        <%= f.label :password, "パスワード" %>
         <%= f.password_field :password %>
       </li>
 
