@@ -73,6 +73,15 @@ select {
   border-radius: 5px;
 }
 
+article{
+  padding-top: 56px;
+  h1 {
+    padding-left: 16px;
+    margin-bottom: 32px;
+    border-left: solid 6px $green;
+  }
+}
+
 // mixin
 @mixin btn($background: $green, $color: $white, $border: $green) {
   padding: 8px 24px;
@@ -87,11 +96,12 @@ select {
 .inner {
   max-width: 992px;
   margin: 0 auto;
-  padding: 0 16px;
+  padding-left: 16px;
+  padding-right: 16px;
 }
 
 .wrap {
-  padding-bottom: 56px;
+  padding: 64px 0 56px;
 }
 
 .flex-box {
@@ -115,11 +125,9 @@ select {
   }
 }
 
-article{
-  h1 {
-    padding-left: 16px;
-    margin-bottom: 32px;
-    border-left: solid 6px $green;
+.link {
+  &-blue {
+    color: $blue;
   }
 }
 
@@ -196,7 +204,8 @@ article{
 }
 
 // sign-up
-.sign-up {
+.sign-up,
+.login {
   input[type=text],
   input[type=password] {
     width: 300px;
@@ -209,5 +218,16 @@ article{
       width: 150px;
       color: $gray;
     }
+  }
+}
+
+.login {
+  .remember-me {
+    margin-bottom: 16px;
+  }
+
+  .btn-green {
+    margin-bottom: 16px;
+    cursor: pointer;
   }
 }
