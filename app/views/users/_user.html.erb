@@ -1,6 +1,30 @@
 <li>
-  <%= link_to user.name, user %>
+  <%= link_to user do %>
+    <div class="users-item__img">
+      <%= user.avatar %>
+    </div>
+    <div class="users-item__intro">
+      <div class="users-item__top">
+        <div class="user-item__name">
+          <i class="fas fa-user"></i>
+          <h2><%= user.name %></h2>
+        </div>
+        <div class="user-item__detail">
+          <p><%= user.birthday %></p>
+          <p><%= user.address %></p>
+          <p>
+            <i class="far fa-thumbs-up"></i>
+            2,000いいね！
+          </p>
+        </div>
+      </div>
+      <div class="user-item__under">
+        <p><%= user.introduction %></p>
+      </div>
+    </div>
+  <% end %>
   <% if current_user.admin? && !current_user?(user) %>
     | <%= link_to "削除", user, method: :delete, data: { confirm: "削除してもよろしいですか？" } %>
   <% end %>
+
 </li>

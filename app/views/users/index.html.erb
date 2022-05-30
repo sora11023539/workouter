@@ -1,7 +1,12 @@
-<% provide(:title, 'ユーザー一覧') %>
-<h1>ユーザー一覧</h1>
-<ul>
-  <% @users.each do |user| %>
-    <%= render user %>
-  <% end %>
-</ul>
+<% provide(:title, 'ユーザーを探す') %>
+
+<article class="users-list inner">
+  <h1>ユーザーを探す</h1>
+  <h4>条件設定</h4>
+  
+  <ul>
+    <% @users.each do |user| %>
+      <%= render user %>
+    <% end %>
+  </ul>
+</article>
