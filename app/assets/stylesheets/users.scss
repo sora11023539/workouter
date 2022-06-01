@@ -12,13 +12,67 @@
       margin-bottom: 40px;
     }
 
-    a {
-      @extend .flex-box;
+    &__wrap {
+      display: flex;
       width: 100%;
-      padding: 32px 0 32px 40px;
+      padding: 32px 4%;
 
+      color: $black;
       box-shadow: 0 0 15px rgba($color: $black, $alpha: .2);
       border-radius: 15px;
+    }
+
+    &__img {
+      margin-right: 4%;
+
+      img {
+        border-radius: 50%;
+      }
+    }
+
+    &__intro {
+      padding: 16px 0;
+    }
+
+    &__top {
+      display: flex;
+      align-items: flex-end;
+      margin-bottom: 24px;
+    }
+
+    &__name {
+      @extend .flex-box;
+      margin-right: 6%;
+
+      .fa-user {
+        margin-right: 8px;
+        height: 27px;
+      }
+    }
+
+    &__detail {
+      display: flex;
+      align-items: flex-end;
+
+      p {
+        color: $gray;
+
+        &:not(:last-child) {
+          margin-right: 16px;
+        }
+      }
+
+      .fa-thumbs-up {
+        height: 24px;
+        margin-right: 8px;
+        color: $blue;
+      }
+    }
+
+    &__under {
+      p {
+        font-weight: 500;
+      }
     }
   }
 }

@@ -1,12 +1,16 @@
 <li class="users-item">
-  <%= link_to user do %>
+  <%= link_to user, class: 'users-item__wrap' do %>
     <div class="users-item__img">
-      <%= user.avatar %>
+      <% if user.avatar? %>
+        <%= image_tag user.avatar.url, style: 'width: 200px;' %>
+      <% else %>
+        <%= image_tag ("sample_user"), style: 'width: 200px;' %>
+      <% end %>
     </div>
     <div class="users-item__intro">
       <div class="users-item__top">
         <div class="users-item__name">
-          <i class="fas fa-user"></i>
+          <i class="fas fa-user <%= user.gender == 'man' ? 'man_icon' : 'woman_icon' %>"></i>
           <h2><%= user.name %></h2>
         </div>
         <div class="users-item__detail">
@@ -22,9 +26,9 @@
         <p><%= user.introduction %></p>
       </div>
     </div>
-  <% end %>
-  <% if current_user.admin? && !current_user?(user) %>
-    | <%= link_to "削除", user, method: :delete, data: { confirm: "削除してもよろしいですか？" } %>
+    <%# if current_user.admin? && !current_user?(user) %>
+      <%#= link_to "削除", user, method: :delete, data: { confirm: "削除してもよろしいですか？" } %>
+    <%# end %>
   <% end %>
 
 </li>

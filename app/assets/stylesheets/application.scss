@@ -125,6 +125,14 @@ article{
   }
 }
 
+.man_icon {
+  color: $navy;
+}
+
+.woman_icon {
+  color: $pink;
+}
+
 // header
 .header {
   @extend .flex-box;
