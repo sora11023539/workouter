@@ -1,15 +1,15 @@
-<li>
+<li class="users-item">
   <%= link_to user do %>
     <div class="users-item__img">
       <%= user.avatar %>
     </div>
     <div class="users-item__intro">
       <div class="users-item__top">
-        <div class="user-item__name">
+        <div class="users-item__name">
           <i class="fas fa-user"></i>
           <h2><%= user.name %></h2>
         </div>
-        <div class="user-item__detail">
+        <div class="users-item__detail">
           <p><%= user.birthday %></p>
           <p><%= user.address %></p>
           <p>
@@ -18,7 +18,7 @@
           </p>
         </div>
       </div>
-      <div class="user-item__under">
+      <div class="users-item__under">
         <p><%= user.introduction %></p>
       </div>
     </div>

@@ -1,9 +1,9 @@
 <% provide(:title, 'ユーザーを探す') %>
 
-<article class="users-list inner">
+<article class="users inner">
   <h1>ユーザーを探す</h1>
-  <h4>条件設定</h4>
-  
+  <h4 class="sub-title">条件設定</h4>
+
   <ul>
     <% @users.each do |user| %>
       <%= render user %>

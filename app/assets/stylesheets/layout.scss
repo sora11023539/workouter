@@ -1,0 +1,21 @@
+// layout
+.inner {
+  max-width: 992px;
+  margin: 0 auto;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.wrap {
+  padding: 64px 0 56px;
+}
+
+.flex-box {
+  display: flex;
+  align-items: center;
+}
+
+.flex-center {
+  @extend .flex-box;
+  justify-content: center;
+}

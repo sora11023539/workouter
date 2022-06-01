@@ -15,6 +15,7 @@
  */
 
 @import './color.scss';
+@import './layout.scss';
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap');
 
 //selector
@@ -96,28 +97,6 @@ article{
   border-radius: 50px;
 }
 
-// layout
-.inner {
-  max-width: 992px;
-  margin: 0 auto;
-  padding-left: 16px;
-  padding-right: 16px;
-}
-
-.wrap {
-  padding: 64px 0 56px;
-}
-
-.flex-box {
-  display: flex;
-  align-items: center;
-}
-
-.flex-center {
-  @extend .flex-box;
-  justify-content: center;
-}
-
 // components
 .btn {
   &-green {
@@ -132,6 +111,17 @@ article{
 .link {
   &-blue {
     color: $blue;
+  }
+}
+
+.sub-title {
+  margin-bottom: 16px;
+
+  &::before {
+    content: '\03e\03e';
+    margin-right: 4px;
+    color: $yellow;
+    font-size: 21px;
   }
 }
 

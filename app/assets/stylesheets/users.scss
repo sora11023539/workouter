@@ -1,3 +1,24 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+@import './color.scss';
+@import './layout.scss';
+
+// users
+.users {
+  &-item {
+    &:not(:last-child) {
+      margin-bottom: 40px;
+    }
+
+    a {
+      @extend .flex-box;
+      width: 100%;
+      padding: 32px 0 32px 40px;
+
+      box-shadow: 0 0 15px rgba($color: $black, $alpha: .2);
+      border-radius: 15px;
+    }
+  }
+}
