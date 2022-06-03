@@ -76,3 +76,21 @@
     }
   }
 }
+
+// sign-up
+.sign-up,
+.login {
+  input[type=text],
+  input[type=password] {
+    width: 300px;
+  }
+  dl {
+    @extend .flex-box;
+    margin-bottom: 24px;
+
+    dt {
+      width: 150px;
+      color: $gray;
+    }
+  }
+}
