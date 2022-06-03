@@ -41,6 +41,16 @@ User.create!(
     email: email,
     password: password,
     password_confirmation: password,
+
+    address: 1,
+    birthday: Time.parse("1996/11/02"),
+    gender: 1,
+    height: 180,
+    weight: 70,
+    proud: "大胸筋",
+    introduction: "サンプルユーザー",
+    usedgym: "ゴールドジム",
+
     activated: true,
     activated_at: Time.zone.now
   )

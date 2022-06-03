@@ -3,6 +3,8 @@ class UsersController < ApplicationController
   before_action :correct_user, only: [:edit, :update]
   # destroyアクションをadminユーザーのみに
   before_action :admin_user, only: :destroy
+  # 検索機能
+  before_action :set_q, only: [:index, :search]
 
   def new
     @user = User.new
@@ -39,12 +41,6 @@ class UsersController < ApplicationController
   def index
     # where 条件に一致したものを配列で返す
     @users = User.where(activated: true)
-
-    # 検索機能
-    # 検索ワード受け取る
-    @q = User.ransack(params[:q])
-    # distinct 重複したデータ除外
-    @usersSearch = @q.result(distinct: true)
   end
 
   def show
@@ -71,6 +67,11 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @users = @user.followers
     render 'show_follow'
+  end
+
+  def search
+    # distinct 重複したデータ除外
+    @searchResults = @q.result
   end
 
   private
@@ -100,6 +101,11 @@ class UsersController < ApplicationController
     # adminユーザーか確認
     def admin_user
       redirect_to(root_url) unless current_user.admin?
+    end
+
+    def set_q
+      # 検索ワード受け取る
+      @q = User.ransack(params[:q])
     end
 
 end
