@@ -7,6 +7,9 @@
 
 // users
 .users {
+  .search-form {
+    margin-bottom: 40px;
+  }
   &-item {
     &:not(:last-child) {
       margin-bottom: 40px;
@@ -79,7 +82,8 @@
 
 // sign-up
 .sign-up,
-.login {
+.login,
+.users {
   input[type=text],
   input[type=password] {
     width: 300px;
