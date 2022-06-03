@@ -1,32 +1,84 @@
 <% provide(:title, @user.name) %>
 
-<%= @user.name %>
-<% if @user.avatar? %>
-  <%= image_tag @user.avatar.url, style: 'width: 200px;' %>
-<% else %>
-  <%= image_tag ("sample_user"), style: 'width: 200px;' %>
-<% end %>
-<p>居住地</p>
-<%= @user.address %>
-<p>利用しているジム</p>
-<%= @user.usedgym %>
-<p>年齢</p>
-<%= @user.birthday %>
-<p>性別</p>
-<%= @user.gender %>
-<p>身長</p>
-<%= @user.height %>
-<p>体重</p>
-<%= @user.weight %>
-<p>自慢の部位</p>
-<%= @user.proud %>
+<article class="users-show">
+  <h1>プロフィール</h1>
+
+  <div class="users-show__box">
+    <div class="users-show__left">
+      <div class="users-show__top">
+        <div class="users-show__img">
+          <% if @user.avatar? %>
+            <%= image_tag @user.avatar.url, style: 'width: 200px;' %>
+          <% else %>
+            <%= image_tag ("sample_user"), style: 'width: 200px;' %>
+          <% end %>
+        </div>
+        <div class="users-show__name">
+          <h2><%= @user.name %></h2>
+          <p>
+            <i class="far fa-thumbs-up"></i>
+            2,000いいね！
+          </p>
+        </div>
+      </div>
+
+      <div class="users-show__details">
+        <h4 class="sub-title">基本情報</h4>
+        <dl>
+          <dt><p>居住地</p></dt>
+          <dd><%= @user.address %></dd>
+        </dl>
+        <dl>
+          <dt><p>利用しているジム</p></dt>
+          <dd><%= @user.usedgym %></dd>
+        </dl>
+        <dl>
+          <dt><p>年齢</p></dt>
+          <dd><%= @user.birthday %></dd>
+        </dl>
+        <dl>
+          <dt><p>性別</p></dt>
+          <dd><%= @user.gender %></dd>
+        </dl>
+        <dl>
+          <dt><p>身長</p></dt>
+          <dd><%= @user.height %></dd>
+        </dl>
+        <dl>
+          <dt><p>体重</p></dt>
+          <dd><%= @user.weight %></dd>
+        </dl>
+        <dl>
+          <dt><p>自慢の部位</p></dt>
+          <dd><%= @user.proud %></dd>
+        </dl>
+      </div>
+
+      <div class="users-show__intro">
+        <h4 class="sub-title">自己紹介</h4>
+        <p><%= @user.introduction %></p>
+      </div>
+
+      <% if current_user?(@user) %>
+        <div class="users-show__operation">
+          <%= link_to "編集", edit_user_path %>
+          <%= link_to "ログアウト", logout_path, method: :delete %>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="users-show__right">
+      <div class="users-show__tab">
+        <h4>フォロー</h4>
+        <h4>フォロワー</h4>
+      </div>
+    </div>
+  </div>
+</article>
+
 
 <%= render 'shared/stats' %>
 <%= render 'follow_form' if logged_in? %>
 <% if current_user != @user %>
   <%= link_to 'チャット', chat_path(@user.id) %>
-<% end %>
-
-<% if current_user?(@user) %>
-  <%= link_to "ログアウト", logout_path, method: :delete %>
 <% end %>
