@@ -40,10 +40,6 @@ ActiveRecord::Schema.define(version: 2022_05_23_235423) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-  create_table "addresses", charset: "utf8mb4", force: :cascade do |t|
-    t.integer "address", default: 0, null: false
-  end
-
   create_table "chats", charset: "utf8mb4", force: :cascade do |t|
     t.integer "user_id"
     t.integer "room_id"
@@ -88,6 +84,7 @@ ActiveRecord::Schema.define(version: 2022_05_23_235423) do
     t.string "reset_digest"
     t.datetime "reset_sent_at"
     t.integer "gender"
+    t.integer "address", default: 0, null: false
     t.date "birthday"
     t.string "usedgym"
     t.integer "height"

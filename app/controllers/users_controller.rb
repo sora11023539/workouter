@@ -39,6 +39,12 @@ class UsersController < ApplicationController
   def index
     # where 条件に一致したものを配列で返す
     @users = User.where(activated: true)
+
+    # 検索機能
+    # 検索ワード受け取る
+    @q = User.ransack(params[:q])
+    # distinct 重複したデータ除外
+    @usersSearch = @q.result(distinct: true)
   end
 
   def show
