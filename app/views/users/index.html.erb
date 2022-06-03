@@ -12,7 +12,7 @@
       <dt><%= f.label :gender, "性別" %></dt>
       <dd><%= f.select :gender_eq, User.genders.keys %></dd>
     </dl>
-
+    <%= f.submit "この条件で検索", class: 'btn-blue' %>
   <% end %>
 
   <ul>

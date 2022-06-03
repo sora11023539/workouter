@@ -103,8 +103,12 @@ article{
     @include btn;
 
     &__reverse {
-      @include btn($white, $green, $green)
+      @include btn($white, $green, $green);
     }
+  }
+
+  &-blue {
+    @include btn($blue, $white, $blue);
   }
 }
 
