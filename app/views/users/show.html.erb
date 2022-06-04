@@ -7,11 +7,7 @@
     <div class="users-show__left">
       <div class="users-show__top">
         <div class="users-show__img">
-          <% if @user.avatar? %>
-            <%= image_tag @user.avatar.url %>
-          <% else %>
-            <%= image_tag ("sample_user") %>
-          <% end %>
+          <%= image_tag @user.avatar.url, class: 'avatar' %>
         </div>
         <div class="users-show__name">
           <h2><%= @user.name %></h2>

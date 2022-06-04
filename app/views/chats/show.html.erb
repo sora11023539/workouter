@@ -4,11 +4,7 @@
 
   <div class="chats-show__box">
     <div class="chats-show__name">
-      <% if @user.avatar? %>
-        <%= image_tag @user.avatar.url, class: 'avatar' %>
-      <% else %>
-        <%= image_tag ("sample_user"), class: 'avatar' %>
-      <% end %>
+      <%= image_tag @user.avatar.url, class: 'avatar' %>
       <p><%= @user.name %></p>
     </div>
     <table class="message">
@@ -30,11 +26,7 @@
         <% else %>
           <tr>
             <th class="your-message">
-              <% if @user.avatar? %>
-                <%= image_tag @user.avatar.url, class: 'avatar' %>
-              <% else %>
-                <%= image_tag ("sample_user"), class: 'avatar' %>
-              <% end %>
+              <%= image_tag @user.avatar.url, class: 'avatar' %>
               <p style="text-align: left;"><%= chat.message %></p>
             </th>
             <th></th>
