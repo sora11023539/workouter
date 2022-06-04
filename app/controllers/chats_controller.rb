@@ -1,4 +1,9 @@
 class ChatsController < ApplicationController
+
+  def index
+    @user = current_user
+  end
+
   # A==current_user
   def show
     # BのUser情報取得
