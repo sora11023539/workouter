@@ -110,12 +110,20 @@ article{
   &-blue {
     @include btn($blue, $white, $blue);
   }
+
+  &-red {
+    @include btn($red, $white, $red);
+  }
 }
 
 .link {
   &-blue {
     color: $blue;
   }
+}
+
+.fa-thumbs-up {
+  color: $blue;
 }
 
 .sub-title {

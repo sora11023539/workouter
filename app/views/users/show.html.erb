@@ -1,6 +1,6 @@
 <% provide(:title, @user.name) %>
 
-<article class="users-show">
+<article class="users-show inner">
   <h1>プロフィール</h1>
 
   <div class="users-show__box">
@@ -8,9 +8,9 @@
       <div class="users-show__top">
         <div class="users-show__img">
           <% if @user.avatar? %>
-            <%= image_tag @user.avatar.url, style: 'width: 200px;' %>
+            <%= image_tag @user.avatar.url %>
           <% else %>
-            <%= image_tag ("sample_user"), style: 'width: 200px;' %>
+            <%= image_tag ("sample_user") %>
           <% end %>
         </div>
         <div class="users-show__name">
@@ -61,8 +61,8 @@
 
       <% if current_user?(@user) %>
         <div class="users-show__operation">
-          <%= link_to "編集", edit_user_path %>
-          <%= link_to "ログアウト", logout_path, method: :delete %>
+          <%= link_to "プロフィール編集", edit_user_path, class: 'btn-blue' %>
+          <%= link_to "ログアウト", logout_path, method: :delete, class: 'btn-red' %>
         </div>
       <% end %>
     </div>
@@ -71,14 +71,12 @@
       <div class="users-show__tab">
         <h4>フォロー</h4>
         <h4>フォロワー</h4>
+        <%= render 'shared/stats' %>
+        <%= render 'follow_form' if logged_in? %>
+        <% if current_user != @user %>
+          <%= link_to 'チャット', chat_path(@user.id) %>
+        <% end %>
       </div>
     </div>
   </div>
 </article>
-
-
-<%= render 'shared/stats' %>
-<%= render 'follow_form' if logged_in? %>
-<% if current_user != @user %>
-  <%= link_to 'チャット', chat_path(@user.id) %>
-<% end %>

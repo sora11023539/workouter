@@ -68,7 +68,6 @@
       .fa-thumbs-up {
         height: 24px;
         margin-right: 8px;
-        color: $blue;
       }
     }
 
@@ -78,12 +77,68 @@
       }
     }
   }
+
+  &-show {
+    &__box {
+      display: flex;
+    }
+
+    &__left {
+      width: calc(50% - 32px);
+    }
+
+    &__top {
+      @extend .flex-box;
+      margin-bottom: 32px;
+    }
+
+    &__img {
+      margin-right: 32px;
+
+      img {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        aspect-ratio: 1 / 1;
+      }
+    }
+
+    &__name {
+      h2 {
+        margin-bottom: 16px;
+      }
+
+      p {
+        @extend .flex-box;
+      }
+
+      svg {
+        height: 24px;
+        margin-right: 8px;
+      }
+    }
+
+    &__detail {
+      dl {
+        padding-left: 27px;
+      }
+    }
+
+    &__intro {
+      margin-bottom: 32px;
+      
+      p {
+        padding-left: 27px;
+      }
+    }
+  }
 }
 
 // sign-up
 .sign-up,
 .login,
-.users {
+.users,
+.users-show {
   input[type=text],
   input[type=password] {
     width: 300px;
