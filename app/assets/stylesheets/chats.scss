@@ -1,3 +1,36 @@
 // Place all the styles related to the chats controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+@import './color.scss';
+@import './layout.scss';
+
+.chats {
+  &-show {
+    &__box {
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba($color: $black, $alpha: .2);
+    }
+
+    &__name {
+      @extend .flex-box;
+      padding: 16px 24px;
+      background-color: $green;
+      border-radius: 15px 15px 0 0;
+
+      .avatar {
+        width: 48px;
+        margin-right: 16px;
+      }
+
+      p {
+        color: $white;
+      }
+    }
+
+    table {
+      width: 80%;
+      margin: 0 auto;
+    }
+  }
+}

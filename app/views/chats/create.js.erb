@@ -1,5 +1,5 @@
 <%# .messageを部分更新、appendメソッドで要素を追加 %>
-$('.message').append("<p><%= @chat.message %></p>");
+$('.message').append("<tbody><tr><th></th><th class='my-message'><p style='text-align: right;'><%= @chat.message %></p></th></tr></tbody>");
 
 <%# チャット投稿後、フォームの値を空にする %>
 $('input[type=text]').val("")

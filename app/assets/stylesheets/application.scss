@@ -150,6 +150,12 @@ article{
   color: $pink;
 }
 
+.avatar {
+  border-radius: 50%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
 // header
 .header {
   @extend .flex-box;

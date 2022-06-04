@@ -1,36 +1,48 @@
 <% provide(:title, "チャット") %>
-<p><%= @user.name %></p>
+<article class="chats-show inner">
+  <h1>チャット</h1>
 
-<table class="message">
-  <thead>
-    <tr>
-      <th style="text-align: left;"><%= current_user.name %></th>
-      <th style="text-align: right;"><%= @user.name %></th>
-    </tr>
-  </thead>
-  <% @chats.each do |chat| %>
-    <% if chat.user_id == current_user.id %>
-    <tbody>
-      <tr>
-        <th>
-          <p style="text-align: left;"><%= chat.message %></p>
-        </th>
-        <th></th>
-      </tr>
-    <% else %>
-      <tr>
-        <th></th>
-        <th>
-          <p style="text-align: right;"><%= chat.message %></p>
-        </th>
-      </tr>
-    </tbody>
-    <% end %>
+  <div class="chats-show__box">
+    <div class="chats-show__name">
+      <% if @user.avatar? %>
+        <%= image_tag @user.avatar.url, class: 'avatar' %>
+      <% else %>
+        <%= image_tag ("sample_user"), class: 'avatar' %>
+      <% end %>
+      <p><%= @user.name %></p>
+    </div>
+    <table class="message">
+      <thead>
+        <tr>
+          <th style="text-align: right;"><%= @user.name %></th>
+          <th style="text-align: left;"><%= current_user.name %></th>
+        </tr>
+      </thead>
+      <% @chats.each do |chat| %>
+        <% if chat.user_id == current_user.id %>
+        <tbody>
+          <tr>
+            <th></th>
+            <th class="my-message">
+              <p style="text-align: right;"><%= chat.message %></p>
+            </th>
+          </tr>
+        <% else %>
+          <tr>
+            <th class="your-messsage">
+              <p style="text-align: left;"><%= chat.message %></p>
+            </th>
+            <th></th>
+          </tr>
+        </tbody>
+        <% end %>
+      <% end %>
+    </table>
+  </div>
+
+  <%= form_with model: @chat, local: false do |f| %>
+    <%= f.text_field :message %>
+    <%= f.hidden_field :room_id %>
+    <%= f.submit "送信する" %>
   <% end %>
-</table>
-
-<%= form_with model: @chat, local: false do |f| %>
-  <%= f.text_field :message %>
-  <%= f.hidden_field :room_id %>
-  <%= f.submit "送信する" %>
-<% end %>
+</article>
