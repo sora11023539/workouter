@@ -1,7 +1,7 @@
 class ChatsController < ApplicationController
 
   def index
-    @user = current_user
+    
   end
 
   # A==current_user

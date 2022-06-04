@@ -1,11 +1,7 @@
 <li class="users-item">
   <%= link_to user, class: 'users-item__wrap' do %>
     <div class="users-item__img">
-      <% if user.avatar? %>
-        <%= image_tag user.avatar.url, style: 'width: 200px;' %>
-      <% else %>
-        <%= image_tag ("sample_user"), style: 'width: 200px;' %>
-      <% end %>
+      <%= image_tag user.avatar.url, class: 'avatar' %>
     </div>
     <div class="users-item__intro">
       <div class="users-item__top">
