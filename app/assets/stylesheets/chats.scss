@@ -2,14 +2,17 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-@import './color.scss';
 @import './layout.scss';
 
 .chats {
   &-show {
+    .avatar {
+      width: 48px;
+      margin-right: 16px;
+    }
+
     &__box {
-      border-radius: 15px;
-      box-shadow: 0 0 15px rgba($color: $black, $alpha: .2);
+      @extend .box-shadow;
     }
 
     &__name {
@@ -17,11 +20,6 @@
       padding: 16px 24px;
       background-color: $green;
       border-radius: 15px 15px 0 0;
-
-      .avatar {
-        width: 48px;
-        margin-right: 16px;
-      }
 
       p {
         color: $white;
@@ -31,6 +29,57 @@
     table {
       width: 80%;
       margin: 0 auto;
+      padding: 16px;
+
+      tbody {
+        th {
+          width: 50%;
+          margin-bottom: 16px;
+        }
+      }
+    }
+
+    .my-message p,
+    .your-message p {
+      @extend .box-shadow;
+      padding: 16px;
+    }
+
+    .my-message {
+      display: flex;
+      justify-content: flex-end;
+      width: 100%;
+    }
+
+    .your-message {
+      @extend .flex-box;
+      width: 100%;
+
+      p {
+        color: $white;
+        background-color: $green;
+      }
+    }
+
+    &__text {
+      padding: 16px 24px;
+      border-top: solid 1px $black;
+
+      form {
+        @extend .flex-box;
+      }
+
+      input[type=text] {
+        height: 42px;
+        width: 70%;
+        padding: 6px 16px;
+        margin-right: 10%;
+        border-radius: 30px;
+      }
+
+      .btn-blue {
+        width: 20%;
+      }
     }
   }
 }

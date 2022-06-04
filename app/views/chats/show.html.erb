@@ -14,8 +14,8 @@
     <table class="message">
       <thead>
         <tr>
-          <th style="text-align: right;"><%= @user.name %></th>
-          <th style="text-align: left;"><%= current_user.name %></th>
+          <th></th>
+          <th></th>
         </tr>
       </thead>
       <% @chats.each do |chat| %>
@@ -24,12 +24,17 @@
           <tr>
             <th></th>
             <th class="my-message">
-              <p style="text-align: right;"><%= chat.message %></p>
+              <p style="text-align: left;"><%= chat.message %></p>
             </th>
           </tr>
         <% else %>
           <tr>
-            <th class="your-messsage">
+            <th class="your-message">
+              <% if @user.avatar? %>
+                <%= image_tag @user.avatar.url, class: 'avatar' %>
+              <% else %>
+                <%= image_tag ("sample_user"), class: 'avatar' %>
+              <% end %>
               <p style="text-align: left;"><%= chat.message %></p>
             </th>
             <th></th>
@@ -38,11 +43,12 @@
         <% end %>
       <% end %>
     </table>
+    <div class="chats-show__text">
+      <%= form_with model: @chat, local: false do |f| %>
+        <%= f.text_field :message, placeholder: 'メッセージを送信...' %>
+        <%= f.hidden_field :room_id %>
+        <%= f.submit "送信する", class: 'btn-blue' %>
+      <% end %>
+    </div>
   </div>
-
-  <%= form_with model: @chat, local: false do |f| %>
-    <%= f.text_field :message %>
-    <%= f.hidden_field :room_id %>
-    <%= f.submit "送信する" %>
-  <% end %>
 </article>
