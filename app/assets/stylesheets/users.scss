@@ -126,9 +126,27 @@
 
     &__intro {
       margin-bottom: 32px;
-      
+
       p {
         padding-left: 27px;
+      }
+    }
+  }
+
+  &-edit {
+    &__img {
+      img {
+        width: 200px;
+        border-radius: 50%;
+        aspect-ratio: 1/1;
+      }
+    }
+    &__intro {
+      align-items: flex-start!important;
+
+      textarea {
+        width: 300px;
+        height: 200px;
       }
     }
   }
@@ -138,7 +156,8 @@
 .sign-up,
 .login,
 .users,
-.users-show {
+.users-show,
+.users-edit {
   input[type=text],
   input[type=password] {
     width: 300px;
