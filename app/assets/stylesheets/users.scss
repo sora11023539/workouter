@@ -103,9 +103,9 @@
     }
 
     &__name {
-      h2 {
-        margin-bottom: 16px;
-      }
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
 
       p {
         @extend .flex-box;
@@ -117,7 +117,16 @@
       }
     }
 
-    &__detail {
+    &__follow {
+      @extend .flex-box;
+
+      a:not(:last-child),
+      input {
+        margin-right: 8px;
+      }
+    }
+
+    &__details {
       dl {
         padding-left: 27px;
       }

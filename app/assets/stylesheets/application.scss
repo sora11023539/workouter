@@ -82,6 +82,15 @@ input[type=file] {
   border: none;
 }
 
+input[type=submit] {
+  cursor: pointer;
+  transition: all .3s;
+
+  &:hover {
+    opacity: .8;
+  }
+}
+
 article{
   padding-top: 56px;
   h1 {
@@ -113,6 +122,10 @@ article{
 
   &-blue {
     @include btn($blue, $white, $blue);
+
+    &__reverse {
+      @include btn($white, $blue, $blue);
+    }
   }
 
   &-red {

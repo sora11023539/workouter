@@ -3,14 +3,21 @@
 <article class="users-show inner">
   <h1>プロフィール</h1>
 
-  <div class="users-show__box">
-    <div class="users-show__left">
+  <%# <div class="users-show__box"> %>
+    <%# <div class="users-show__left"> %>
       <div class="users-show__top">
         <div class="users-show__img">
           <%= image_tag @user.avatar.url, class: 'avatar' %>
         </div>
         <div class="users-show__name">
           <h2><%= @user.name %></h2>
+          <div class="users-show__follow">
+            <%= render 'shared/stats' %>
+            <%= render 'follow_form' if logged_in? %>
+            <% if current_user != @user %>
+              <%= link_to 'チャット', chat_path(@user.id), class: 'btn-blue' %>
+            <% end %>
+          </div>
           <p>
             <i class="far fa-thumbs-up"></i>
             2,000いいね！
@@ -63,16 +70,13 @@
       <% end %>
     </div>
 
-    <div class="users-show__right">
-      <div class="users-show__tab">
-        <h4>フォロー</h4>
-        <h4>フォロワー</h4>
-        <%= render 'shared/stats' %>
-        <%= render 'follow_form' if logged_in? %>
-        <% if current_user != @user %>
-          <%= link_to 'チャット', chat_path(@user.id) %>
-        <% end %>
+    <% if false %>
+      <div class="users-show__right">
+        <div class="users-show__tab">
+          <h4>フォロー</h4>
+          <h4>フォロワー</h4>
+        </div>
       </div>
-    </div>
-  </div>
+    <% end %>
+  <%# </div> %>
 </article>
