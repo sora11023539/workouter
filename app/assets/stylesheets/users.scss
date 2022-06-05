@@ -30,8 +30,7 @@
       margin-right: 4%;
 
       img {
-        width: 120px;
-        border-radius: 50%;
+        width: 160px;
       }
     }
 
@@ -47,6 +46,7 @@
 
     &__name {
       @extend .flex-box;
+      width: 100%;
       margin-right: 6%;
 
       .fa-user {
@@ -58,6 +58,7 @@
     &__detail {
       display: flex;
       align-items: flex-end;
+      margin-bottom: 16px;
 
       p {
         color: $gray;

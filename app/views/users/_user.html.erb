@@ -4,7 +4,7 @@
       <%= image_tag user.avatar.url, class: 'avatar' %>
     </div>
     <div class="users-item__intro">
-      <div class="users-item__top">
+      <%# <div class="users-item__top"> %>
         <div class="users-item__name">
           <i class="fas fa-user <%= user.gender == '男' ? 'man_icon' : 'woman_icon' %>"></i>
           <h2><%= user.name %></h2>
@@ -17,7 +17,7 @@
             2,000いいね！
           </p>
         </div>
-      </div>
+      <%# </div> %>
       <div class="users-item__under">
         <p><%= user.introduction %></p>
       </div>

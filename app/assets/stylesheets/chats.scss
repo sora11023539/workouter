@@ -5,6 +5,26 @@
 @import './layout.scss';
 
 .chats {
+  &-item {
+
+    &:last-child {
+      margin-bottom: 24px;
+    }
+
+    .avatar {
+      width: 80px;
+      margin-right: 24px;
+    }
+
+    &__name {
+      margin-bottom: 8px;
+    }
+
+    &__message {
+      color: $gray;
+    }
+  }
+
   &-show {
     .avatar {
       width: 48px;

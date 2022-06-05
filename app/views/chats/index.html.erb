@@ -6,13 +6,16 @@
   <ul>
     <% @another_rooms.each do |room| %>
       <% @user = room.user %>
-      <li class="chats-item">
-        <%= link_to chat_path(@user.id) do %>
+      <li class="users-item chats-item">
+        <%= link_to chat_path(@user.id), class: 'users-item__wrap' do %>
           <div class="chats-item__img">
             <%= image_tag @user.avatar.url, class: 'avatar' %>
           </div>
           <div class="chats-item__detail">
-            <p class="chats-item__name"><%= @user.name %></p>
+            <div class="users-item__name chats-item__name">
+              <i class="fas fa-user <%= @user.gender == '男' ? 'man_icon' : 'woman_icon' %>"></i>
+              <h2><%= @user.name %></h2>
+            </div>
             <p class="chats-item__message">
               <%= Chat.find_by(id: room.room.chat_ids.last).message %>
             </p>
