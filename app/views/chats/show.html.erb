@@ -3,10 +3,10 @@
   <h1>チャット</h1>
 
   <div class="chats-show__box">
-    <div class="chats-show__name">
+    <%= link_to user_path(@user.id), class: 'chats-show__name' do %>
       <%= image_tag @user.avatar.url, class: 'avatar' %>
       <p><%= @user.name %></p>
-    </div>
+    <% end %>
     <table class="message">
       <thead>
         <tr>
