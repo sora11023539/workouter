@@ -1,7 +1,16 @@
 class ChatsController < ApplicationController
 
   def index
-    
+    # ログインユーザーがやり取りしているroomのIDを全て取得し、配列化しmy_room_id
+    current_rooms = current_user.user_rooms
+    my_room_id = []
+    current_rooms.each do |user_room|
+      my_room_id << user_room.room.id
+    end
+
+    # user_roomテーブルからmy_room_idでuser_idが自分のIDではないレコードを取り出す
+    # これで自分が参加中のroomを相手の情報で取得
+    @another_rooms = UserRoom.where(room_id: my_room_id).where.not(user_id: current_user.id)
   end
 
   # A==current_user

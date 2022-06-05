@@ -14,6 +14,7 @@ class User < ApplicationRecord
   has_many :followers, through: :passive_relationships, source: :follower
 
   # chat
+  has_many :rooms, through: :user_rooms, source: :room
   has_many :user_rooms, dependent: :destroy
   has_many :chats, dependent: :destroy
 

@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'chats', to: 'chats#index'
   get 'chats/:id', to: 'chats#show', as: 'chat'
   resources :chats, only: [:create]
+  resources :rooms, only: [:create, :show, :index]
 
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'

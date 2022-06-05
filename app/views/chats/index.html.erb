@@ -3,4 +3,22 @@
 <article class="chats inner">
   <h1>チャット</h1>
   <h4 class="sub-title">やりとり中</h4>
+  <ul>
+    <% @another_rooms.each do |room| %>
+      <% @user = room.user %>
+      <li class="chats-item">
+        <%= link_to chat_path(@user.id) do %>
+          <div class="chats-item__img">
+            <%= image_tag @user.avatar.url, class: 'avatar' %>
+          </div>
+          <div class="chats-item__detail">
+            <p class="chats-item__name"><%= @user.name %></p>
+            <p class="chats-item__message">
+              <%= Chat.find_by(id: room.room.chat_ids.last).message %>
+            </p>
+          </div>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
 </article>
