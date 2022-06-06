@@ -30,7 +30,7 @@ class User < ApplicationRecord
   mount_uploader :avatar, AvatarUploader
 
   # 性別
-  enum gender: { 男: 0, 女: 1, その他: 2}
+  enum gender: { 男性: 0, 女性: 1}
 
   # 住所
   enum address: {
