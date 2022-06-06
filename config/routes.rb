@@ -11,8 +11,8 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
 
-  post 'like/:id' to: 'likes#create', as: 'create_like'
-  delete 'like/:id' to: 'likes#destroy', as: 'dstroy_like'
+  post 'like/:id', to: 'likes#create', as: 'create_like'
+  delete 'like/:id', to: 'likes#destroy', as: 'destroy_like'
 
   # Usersコントローラーにfollowing, followersアクション追加
   resources :users do

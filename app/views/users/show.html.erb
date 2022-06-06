@@ -15,10 +15,9 @@
           <%= link_to 'チャット', chat_path(@user.id), class: 'btn-blue' %>
         <% end %>
       </div>
-      <p>
-        <i class="far fa-thumbs-up"></i>
-        2,000いいね！
-      </p>
+      <div id="likes_buttons_<%= current_user.id %>">
+        <%= render 'likes/like' %>
+      </div>
     </div>
   </div>
 

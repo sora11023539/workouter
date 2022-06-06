@@ -47,7 +47,7 @@ class User < ApplicationRecord
   }
 
   # いいね
-  has_many :likes
+  has_many :likes, dependent: :destroy
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
   validates :email, presence: true,
@@ -144,8 +144,8 @@ class User < ApplicationRecord
   end
 
   # likeモデルにuser_idが存在するか？
-  def liked_by?(user_id)
-    likes.where(user_id: user_id).exists?
+  def liked_by?(user)
+    likes.where(user_id: user.id).exists?
   end
 
 

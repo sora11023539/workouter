@@ -1,0 +1,13 @@
+<% if @user.liked_by?(@user) %>
+  <%= link_to destroy_like_path(), method: :delete, local: false do %>
+    <i class="fas fa-thumbs-up"></i>
+    <%= @likes_count %>
+    <span>いいね！</span>
+  <% end %>
+<% else %>
+  <%= link_to create_like_path(), method: :post, local: false do %>
+    <i class="far fa-thumbs-up"></i>
+    <%= @likes_count %>
+    <span>いいね！</span>
+  <% end %>
+<% end %>
