@@ -46,6 +46,9 @@ class User < ApplicationRecord
     沖縄県:47
   }
 
+  # いいね
+  has_many :likes
+
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
   validates :email, presence: true,
                     length: { maximum: 255 },
