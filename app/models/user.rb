@@ -143,6 +143,12 @@ class User < ApplicationRecord
     following.include?(other_user)
   end
 
+  # likeモデルにuser_idが存在するか？
+  def liked_by?(user_id)
+    likes.where(user_id: user_id).exists?
+  end
+
+
   private
 
     # emailを小文字に変換
