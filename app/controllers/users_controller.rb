@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, only: [:index, :edit, :update, :destroy, :following, :followers]
-  before_action :correct_user, only: [:edit, :update]
+  before_action :correct_user, only: [:show, :edit, :update]
   # destroyアクションをadminユーザーのみに
   before_action :admin_user, only: :destroy
   # 検索機能
@@ -70,11 +70,15 @@ class UsersController < ApplicationController
   end
 
   def search
-    # distinct 重複したデータ除外
-    @searchResults = @q.result
+    @users = @q.result
   end
 
   private
+
+    def set_q
+      # 検索ワード受け取る
+      @q = User.ransack(params[:q])
+    end
 
     def user_params
       params.require(:user).permit( :name,
@@ -103,9 +107,8 @@ class UsersController < ApplicationController
       redirect_to(root_url) unless current_user.admin?
     end
 
-    def set_q
-      # 検索ワード受け取る
-      @q = User.ransack(params[:q])
+    def search_params
+      params.require(:q).permit!
     end
 
 end
