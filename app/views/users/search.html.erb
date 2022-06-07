@@ -9,8 +9,8 @@
   </div>
 
   <ul>
-    <% if @users.present? %>
-      <% @users.each do |user| %>
+    <% if @user.present? %>
+      <% @user.each do |user| %>
         <%= render user %>
       <% end %>
     <% else %>

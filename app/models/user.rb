@@ -144,7 +144,7 @@ class User < ApplicationRecord
 
   # likeモデルにuser_idが存在するか？
   def liked_by?(user)
-    likes.where(user_id: user.id).exists?
+    likes.where(like_id: user.id).exists?
   end
 
   def age

@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, only: [:index, :edit, :update, :destroy, :following, :followers]
-  before_action :correct_user, only: [:show, :edit, :update]
+  before_action :correct_user, only: [:edit, :update]
   # destroyアクションをadminユーザーのみに
   before_action :admin_user, only: :destroy
   # 検索機能
@@ -40,13 +40,14 @@ class UsersController < ApplicationController
   # 有効化された全ユーザー表示
   def index
     # where 条件に一致したものを配列で返す
-    @users = User.where(activated: true)
+    @user = User.where(activated: true)
   end
 
   def show
     @user = User.find(params[:id])
     redirect_to root_url and return unless @user.activated?
-    @likes_count = Like.where(user_id: @user.id).count
+    # @likes_count = Like.where(user_id: @user.id).count
+    @likes_count = @user.likes.count
   end
 
   # ユーザー削除
@@ -71,7 +72,7 @@ class UsersController < ApplicationController
   end
 
   def search
-    @users = @q.result
+    @user = @q.result
   end
 
   private
