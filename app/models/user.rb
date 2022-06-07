@@ -30,11 +30,10 @@ class User < ApplicationRecord
   mount_uploader :avatar, AvatarUploader
 
   # 性別
-  enum gender: { 男: 0, 女: 1, その他: 2}
+  enum gender: { 男性: 0, 女性: 1}
 
   # 住所
   enum address: {
-    "都道府県":0,
     北海道:1,青森県:2,岩手県:3,宮城県:4,秋田県:5,山形県:6,福島県:7,
     茨城県:8,栃木県:9,群馬県:10,埼玉県:11,千葉県:12,東京都:13,神奈川県:14,
     新潟県:15,富山県:16,石川県:17,福井県:18,山梨県:19,長野県:20,
@@ -148,6 +147,11 @@ class User < ApplicationRecord
     likes.where(user_id: user.id).exists?
   end
 
+  def age
+    d1 = self.birthday.strftime("%Y%m%d").to_i
+    d2 = Date.today.strftime("%Y%m%d").to_i
+    return (d2 - d1) / 10000
+  end
 
   private
 

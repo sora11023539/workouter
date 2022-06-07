@@ -1,0 +1,11 @@
+<%= search_form_for @q, url: search_users_path do |f| %>
+  <dl>
+    <dt><%= f.label :address_eq, "居住地" %></dt>
+    <dd><%= f.select :address_eq, User.addresses, include_blank: '指定無し' %></dd>
+  </dl>
+  <dl>
+    <dt><%= f.label :gender_eq, "性別" %></dt>
+    <dd><%= f.select :gender_eq, User.genders, include_blank: '指定無し' %></dd>
+  </dl>
+  <%= f.submit "この条件で検索", class: 'btn-blue' %>
+<% end %>

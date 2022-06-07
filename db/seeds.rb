@@ -36,20 +36,34 @@ User.create!(
   name = Faker::Name.name
   email = "user-#{n+1}@test.com"
   password = "P@ssw0rd01"
+  datetime_from = Time.zone.parse('1960/01/01')
+  datetime_to = Time.zone.parse('2000/01/01')
+  prouds = [
+    "大胸筋",
+    "腹筋",
+    "背筋",
+    "大腿四頭筋"
+  ]
+  usedgyms = [
+    "ゴールドジム",
+    "エニタイムフィットネス",
+    "公営ジム"
+  ]
+
   User.create!(
     name: name,
     email: email,
     password: password,
     password_confirmation: password,
 
-    address: 1,
-    birthday: Time.parse("1996/11/02"),
-    gender: 1,
-    height: 180,
-    weight: 70,
-    proud: "大胸筋",
+    address: rand(1..47),
+    birthday: rand(datetime_from..datetime_to),
+    gender: rand(0..1),
+    height: rand(160..180),
+    weight: rand(50..90),
+    proud: prouds.sample,
     introduction: "サンプルユーザー",
-    usedgym: "ゴールドジム",
+    usedgym: usedgyms.sample,
 
     activated: true,
     activated_at: Time.zone.now
