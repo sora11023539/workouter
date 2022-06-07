@@ -1,16 +1,15 @@
 <% provide(:title, @title) %>
-<div>
-  <h1><%= @user.name %></h1>
-  <%= link_to "プロフィールを見る", @user %>
-</div>
-<div>
-  <%= render 'shared/stats' %>
-</div>
-<div>
-  <h3><%= @title %></h3>
-  <% if @users.any? %>
-    <ul>
-      <%= render @users %>
-    </ul>
-  <% end %>
-</div>
+<article class="inner">
+  <h1><%= @user.name %><%= current_page?(following_user_path) ? 'フォローリスト' : 'フォロワーリスト' %></h1>
+  <%= link_to "プロフィールに戻る", @user %>
+  <div style="margin-bottom: 24px;">
+    <%= render 'shared/stats' %>
+  </div>
+  <div>
+    <% if @users.any? %>
+      <ul>
+        <%= render @users %>
+      </ul>
+    <% end %>
+  </div>
+</article>
