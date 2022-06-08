@@ -12,7 +12,8 @@ COPY Gemfile /workouter/Gemfile
 COPY Gemfile.lock /workouter/Gemfile.lock
 
 RUN gem install bundler
-RUN bundle install
+# RUN bundle install
+RUN bundle install --without development test
 
 COPY . /workouter
 
