@@ -25,6 +25,7 @@ gem 'faker', '2.18.0'
 gem 'mini_magick'
 gem 'carrierwave'
 gem 'ransack'
+gem 'dotenv-rails'
 
 # Use Active Storage variant
 gem 'image_processing', '~> 1.2'
