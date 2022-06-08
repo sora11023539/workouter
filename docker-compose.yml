@@ -5,7 +5,9 @@ services:
     build:
       context: .
     # 設定ファイル指定し、puma(App Server)立ち上げ
-    command: bundle exec puma -C config/puma.rb
+    # local
+    # command: bundle exec puma -C config/puma.rb
+    command: bundle exec puma -C config/puma.rb -e production
 
     # host側のdocker-compose.ymlが存在しているディレクトリと、コンテナ側の/workouterをマウント（共通化）
     volumes:
@@ -20,18 +22,18 @@ services:
     depends_on:
       - db
 
-  db:
-    # dockerhubからmysqlをプル
-    image: mysql:5.7
-    environment:
-      MYSQL_ROOT_PASSWORD: password
-      MYSQL_USER: user
-      MYSQL_PASSWORD: password
-      MYSQL_DATABASE: workouter_development
-    volumes:
-      - db-data:/var/lib/mysql
-    networks:
-      - workouter-network
+  # db:
+  #   # dockerhubからmysqlをプル
+  #   image: mysql:5.7
+  #   environment:
+  #     MYSQL_ROOT_PASSWORD: password
+  #     MYSQL_USER: user
+  #     MYSQL_PASSWORD: password
+  #     MYSQL_DATABASE: workouter_development
+  #   volumes:
+  #     - db-data:/var/lib/mysql
+  #   networks:
+  #     - workouter-network
 
   web:
     # ./nrinx_dockerがあるディレクトリ指定し、コンテナ作成
