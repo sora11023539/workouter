@@ -31,10 +31,4 @@ RSpec.describe User, type: :model do
     user = FactoryBot.build(:user, password: "passwor")
     expect(user).not_to be_valid
   end
-
-  # ニックネームがなければ無効な状態であること
-  it 'is invalid without a name' do
-    user = FactoryBot.build(:user, name: nil)
-    expect(user).not_to be_valid
-  end
 end
