@@ -5,7 +5,6 @@ RSpec.describe Relationship, type: :model do
   describe "#create" do
 
     context "uniqueness verification" do
-
       before do
         @relation = FactoryBot.create(:relationship)
         @user = FactoryBot.build(:relationship)
@@ -23,6 +22,11 @@ RSpec.describe Relationship, type: :model do
         expect(relation2).to be_valid
       end
 
+      # follower_idが違うならfollowed_idが同じでも保存できる
+      it "is if the follower_id is different, you can save even if the followed_id is the same" do
+        relation2 = FactoryBot.build(:relationship, follower_id: @user.follower_id, followed_id: @relation.followed_id)
+        expect(relation2).to be_valid
+      end
     end
   end
 
