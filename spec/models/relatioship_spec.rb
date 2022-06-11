@@ -1,9 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Relationship, type: :model do
-  let(:relationship) { FactoryBot.create(:relationship) }
+  
   describe "#create" do
-
     context "uniqueness verification" do
       before do
         @relation = FactoryBot.create(:relationship)
