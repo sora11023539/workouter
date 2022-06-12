@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Relationship, type: :model do
-  
+
   describe "#create" do
     context "uniqueness verification" do
       before do

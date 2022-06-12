@@ -6,11 +6,11 @@ RSpec.describe "Users", type: :request do
   describe "GET /edit" do
     subject(:get_path) { get edit_user_path(user.id) }
 
-    xcontext "When logged in" do
+    context "When logged in" do
       before { sign_in(user) }
 
-      it('returns http success') { expect(get_path).to eq 200}
-      # it('returns http success') { expect(edit_user_path(user.id)).to eq edit_user_path(user.id)}
+      # it('returns http success') { expect(get_path).to eq 200}
+      it('returns http success') { expect(edit_user_path(user.id)).to eq edit_user_path(user.id)}
     end
 
     context "When not logged in" do

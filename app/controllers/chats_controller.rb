@@ -1,4 +1,5 @@
 class ChatsController < ApplicationController
+  before_action :logged_in_user
 
   def index
     # ログインユーザーがやり取りしているroomのIDを全て取得し、配列化しmy_room_id
