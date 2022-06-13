@@ -168,6 +168,28 @@ article{
   object-fit: cover;
 }
 
+.alert {
+  position: fixed;
+  top: 64px;
+  width: 100%;
+  padding: 8px 0;
+
+  color: $white;
+  text-align: center;
+
+  &-success {
+    background-color: rgba($color: $green, $alpha: 0.7);
+  }
+
+  &-danger {
+    background-color: rgba($color: $red, $alpha: 0.7)
+  }
+
+  &-warning {
+    background-color: rgba($color: $yellow, $alpha: 0.7)
+  }
+}
+
 // header
 .header {
   @extend .flex-box;
@@ -225,6 +247,7 @@ article{
 
   &-logo {
     font-size: 32px;
+    margin-bottom: 16px;
   }
 
   &-home {
@@ -237,5 +260,34 @@ article{
     justify-content: space-between;
 
     padding: 40px;
+  }
+
+  &-map {
+    p {
+      color: $white;
+      margin-bottom: 16px;
+    }
+  }
+}
+
+// form
+.sign-up,
+.login,
+.users,
+.users-show,
+.users-edit,
+.password-reset {
+  input[type=text],
+  input[type=password] {
+    width: 300px;
+  }
+  dl {
+    @extend .flex-box;
+    margin-bottom: 24px;
+
+    dt {
+      width: 150px;
+      color: $gray;
+    }
   }
 }
