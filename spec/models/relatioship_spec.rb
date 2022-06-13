@@ -10,7 +10,7 @@ RSpec.describe Relationship, type: :model do
       end
 
       # follower_idとfollowed_idの組み合わせは一意でなければ保存できない
-      xit "is the combination of follower_id and followed_id can only be saved if it is unique" do
+      it "is the combination of follower_id and followed_id can only be saved if it is unique" do
         relation2 = FactoryBot.build(:relationship, followed_id: @relation.followed_id, followed_id: @relation.followed_id)
         expect(relation2).not_to be_vaild
       end

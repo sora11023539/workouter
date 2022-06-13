@@ -3,8 +3,8 @@ require 'rails_helper'
 # Userモデルのテスト
 RSpec.describe User, type: :model do
   # ニックネーム,メールアドレス,パスワード（確認）があれば有効であること
-  xit "is valid with a name, email, password, password_confirm" do
-    expect(FactoryBot.create(:user)).to be_vaild
+  it "is valid with a name, email, password, password_confirm" do
+    expect(FactoryBot.build(:user)).to be_valid
   end
 
   # ニックネームがなければ無効な状態であること
