@@ -225,6 +225,7 @@ article{
 
   &-logo {
     font-size: 32px;
+    margin-bottom: 16px;
   }
 
   &-home {
@@ -237,5 +238,12 @@ article{
     justify-content: space-between;
 
     padding: 40px;
+  }
+
+  &-map {
+    p {
+      color: $white;
+      margin-bottom: 16px;
+    }
   }
 }
