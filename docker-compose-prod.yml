@@ -1,0 +1,61 @@
+version: '3'
+services:
+  app:
+    # Dockerfileのディレクトリ(context)指定し、コンテナ作成
+    build:
+      context: .
+      dockerfile: "Dockerfile.prod"
+    # 設定ファイル指定し、puma(App Server)立ち上げ
+    # local
+    # command: bundle exec puma -C config/puma.rb
+    command: bundle exec puma -C config/puma.rb -e production
+
+    # host側のdocker-compose.ymlが存在しているディレクトリと、コンテナ側の/workouterをマウント（共通化）
+    volumes:
+      - .:/workouter
+      - public-data:/workouter/public
+      - tmp-data:/workouter/tmp
+      - log-data:/workouter/log
+    # dbコンテナと共通のネットワーク利用
+    networks:
+      - workouter-network
+    # dbコンテナが生成されてから、appを実行
+    # depends_on:
+    #   - db
+
+  # db:
+  #   # dockerhubからmysqlをプル
+  #   image: mysql:5.7
+  #   environment:
+  #     MYSQL_ROOT_PASSWORD: password
+  #     MYSQL_USER: user
+  #     MYSQL_PASSWORD: password
+  #     MYSQL_DATABASE: workouter_development
+  #   volumes:
+  #     - db-data:/var/lib/mysql
+  #   networks:
+  #     - workouter-network
+
+  web:
+    # ./nrinx_dockerがあるディレクトリ指定し、コンテナ作成
+    build:
+      context: ./nginx_docker
+    volumes:
+      - public-data:/workouter/public
+      - tmp-data:/workouter/tmp
+    ports:
+      - 80:80
+    depends_on:
+      - app
+    networks:
+      - workouter-network
+
+volumes:
+  public-data:
+  tmp-data:
+  log-data:
+  db-data:
+
+networks:
+  workouter-network:
+    external: true
