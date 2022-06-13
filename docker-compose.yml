@@ -1,4 +1,5 @@
 version: '3'
+
 services:
   app:
     build:
@@ -6,7 +7,6 @@ services:
       dockerfile: "Dockerfile.dev"
     command: bundle exec rails s -p 3000 -b '0.0.0.0'
     volumes:
-# 「app」と書かれている部分はディレクトリ名に応じて変更します。
       - .:/workouter
     ports:
       - 3000:3000
@@ -14,6 +14,7 @@ services:
       - db
     tty: true
     stdin_open: true
+
   db:
     platform: linux/x86_64
     image: mysql:5.7
@@ -21,5 +22,6 @@ services:
       - db-volume:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: password
+
 volumes:
   db-volume:
