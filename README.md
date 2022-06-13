@@ -4,15 +4,16 @@
 
 http://34.208.243.129
 
-# サンプルユーザー
-
-master@test.com
-P@ssw0rd01
+- サンプルユーザー
+  - master@test.com
+  - P@ssw0rd01
 
 ## サービス内容
 
 全国のトレーニーと繋がれるSNS。
+
 誰かと合トレしたい、情報共有したい
+
 そんなトレーニーの手助けとなるサービスです。
 
 ## ER図　
@@ -32,14 +33,17 @@ https://www.figma.com/file/j04vMjpvVODBbWdRzT0KiT/Workouter?node-id=0%3A1
 
 ## 環境
 
-1. OS
-Mac
+- OS
+  - Mac
 
-2. インフラ
-Docker MySql5.7 Nginx EC2
+- インフラ
+  - Docker
+  - MySql5.7 
+  - Nginx 
+  - EC2
 
-3. 言語
-Ruby(3.0.2) JS
+- 言語
+  - Ruby(3.0.2) JS
 
-4. フレームワーク
-Ruby on rails(6.1.4)
+- フレームワーク
+  - Ruby on rails(6.1.4)
