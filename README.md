@@ -5,8 +5,8 @@
 http://34.208.243.129
 
 - サンプルユーザー
-  - master@test.com
-  - P@ssw0rd01
+  - email: master@test.com
+  - pass: P@ssw0rd01
 
 ## サービス内容
 
@@ -16,20 +16,17 @@ http://34.208.243.129
 
 そんなトレーニーの手助けとなるサービスです。
 
-## ER図　
-
-https://app.diagrams.net/#G1KEt5hswW0S4YlvibOsHa94-EzU6FzKEm
-
 ## デザイン
 
 https://www.figma.com/file/j04vMjpvVODBbWdRzT0KiT/Workouter?node-id=0%3A1
 
 ## 機能
 
-1. アカウント
-2. フォロー
-3. チャット
-4. ユーザー検索
+1. アカウント登録
+2. いいね
+3. フォロー
+4. チャット
+5. ユーザー検索
 
 ## 環境
 
@@ -43,7 +40,23 @@ https://www.figma.com/file/j04vMjpvVODBbWdRzT0KiT/Workouter?node-id=0%3A1
   - EC2
 
 - 言語
-  - Ruby(3.0.2) JS
+  - Ruby(3.0.2)
+  - Javascript
 
 - フレームワーク
   - Ruby on rails(6.1.4)
+
+## アピールポイント
+
+1. デザイン作成にFigma使用
+2. いいね、メッセージ送信、フォロー追加（削除）時にAjax使用し、UX向上
+3. WebサーバーにNginxを使用し、高速化
+4. 本番環境にAWS(EC2)使用
+5. こまめにブランチ切る、コミットする、リファクタリング
+
+## 今後アップデートしていきたいこと
+
+1. 利用ジムにGoogle Maps API 導入
+2. グループチャット機能
+3. インスタグラムの様な投稿機能
+4. スマホ対応、アプリ化
