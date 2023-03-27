@@ -1,13 +1,5 @@
 # README
 
-## サイトURL
-
-http://34.208.243.129
-
-- サンプルユーザー
-  - email: master@test.com
-  - pass: P@ssw0rd01
-
 ## サービス内容
 
 全国のトレーニーと繋がれるSNS。
